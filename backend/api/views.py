@@ -112,3 +112,5 @@ class PDFReportView(APIView):
             filename="equipment_report.pdf",
             content_type="application/pdf"
         )
+
+# theme change view (api/theme/)
