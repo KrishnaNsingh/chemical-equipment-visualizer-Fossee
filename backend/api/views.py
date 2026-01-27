@@ -64,3 +64,27 @@ class CSVUploadView(APIView):
         serializer = DatasetSerializer(dataset)
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+
+#Latest uploaded dataset (api/summary/)
+class SummaryView(APIView):
+    def get(self, request):
+        dataset = Dataset.objects.order_by("-uploaded_at").first()
+
+        if not dataset:
+            return Response(
+                {"message": "No data available"},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        serializer = DatasetSerializer(dataset)
+        return Response(serializer.data)
+
+
+#Last 5 uploaded datasets (api/history/)
+class HistoryView(APIView):
+    def get(self, request):
+        datasets = Dataset.objects.order_by("-uploaded_at")[:5]
+        serializer = DatasetSerializer(datasets, many=True)
+        return Response(serializer.data)
+
