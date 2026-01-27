@@ -1,3 +1,66 @@
-from django.shortcuts import render
+import pandas as pd
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
 
-# Create your views here.
+from .models import Dataset
+from .serializers import DatasetSerializer
+
+class CSVUploadView(APIView):
+    def post(self, request):
+        file = request.FILES.get("file")
+
+        if not file:
+            return Response(
+                {"error": "No file uploaded"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        try:
+            df = pd.read_csv(file)
+        except Exception:
+            return Response(
+                {"error": "Invalid CSV file"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        required_columns = {
+            "Equipment Name",
+            "Type",
+            "Flowrate",
+            "Pressure",
+            "Temperature"
+        }
+
+        if not required_columns.issubset(df.columns):
+            return Response(
+                {"error": "CSV missing required columns"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        # Analytics
+        total_equipment = len(df)
+        avg_flowrate = df["Flowrate"].mean()
+        avg_pressure = df["Pressure"].mean()
+        avg_temperature = df["Temperature"].mean()
+
+        type_distribution = df["Type"].value_counts().to_dict()
+
+        # Save dataset
+        dataset = Dataset.objects.create(
+            file_name=file.name,
+            total_equipment=total_equipment,
+            avg_flowrate=avg_flowrate,
+            avg_pressure=avg_pressure,
+            avg_temperature=avg_temperature,
+            type_distribution=type_distribution,
+        )
+
+        # Keep only last 5
+        # Dataset.objects.order_by("-uploaded_at")[5:].delete()
+        old_datasets = Dataset.objects.order_by("-uploaded_at").values_list("id", flat=True)[5:]
+        Dataset.objects.filter(id__in=old_datasets).delete()
+
+        serializer = DatasetSerializer(dataset)
+
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
