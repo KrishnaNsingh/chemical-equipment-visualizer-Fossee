@@ -88,3 +88,27 @@ class HistoryView(APIView):
         serializer = DatasetSerializer(datasets, many=True)
         return Response(serializer.data)
 
+
+
+# PDF Report View (api/report/)
+from django.http import FileResponse
+from .pdf_utils import generate_dataset_pdf
+
+class PDFReportView(APIView):
+    def get(self, request):
+        dataset = Dataset.objects.order_by("-uploaded_at").first()
+
+        if not dataset:
+            return Response(
+                {"message": "No data available"},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        pdf_buffer = generate_dataset_pdf(dataset)
+
+        return FileResponse(
+            pdf_buffer,
+            as_attachment=True,
+            filename="equipment_report.pdf",
+            content_type="application/pdf"
+        )
