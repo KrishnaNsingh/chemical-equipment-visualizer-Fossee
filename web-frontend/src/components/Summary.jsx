@@ -20,23 +20,64 @@ export default function Summary() {
   }, []);
 
   if (error) {
-    return <p>{error}</p>;
+    return (
+      <div className="card">
+        <div className="cardBody">
+          <div className="cardTitleRow">
+            <h3 className="cardTitle">Summary</h3>
+          </div>
+          <p className="statusText statusError">{error}</p>
+        </div>
+      </div>
+    );
   }
 
   if (!summary) {
-    return <p>Loading summary...</p>;
+    return (
+      <div className="card">
+        <div className="cardBody">
+          <div className="cardTitleRow">
+            <h3 className="cardTitle">Summary</h3>
+          </div>
+          <div className="loadingRow">
+            <span className="spinner" aria-hidden="true" />
+            <span>Loading summary…</span>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div style={{ marginBottom: "20px" }}>
-      <h3>Summary</h3>
-      <ul>
-        <li><b>File Name:</b> {summary.file_name}</li>
-        <li><b>Total Equipment:</b> {summary.total_equipment}</li>
-        <li><b>Average Flowrate:</b> {summary.avg_flowrate.toFixed(2)}</li>
-        <li><b>Average Pressure:</b> {summary.avg_pressure.toFixed(2)}</li>
-        <li><b>Average Temperature:</b> {summary.avg_temperature.toFixed(2)}</li>
-      </ul>
+    <div className="card">
+      <div className="cardBody">
+        <div className="cardTitleRow">
+          <h3 className="cardTitle">Summary</h3>
+        </div>
+
+        <ul className="kvList">
+          <li className="kvItem">
+            <span className="kvKey">File</span>
+            <span className="kvVal">{summary.file_name}</span>
+          </li>
+          <li className="kvItem">
+            <span className="kvKey">Total equipment</span>
+            <span className="kvVal">{summary.total_equipment}</span>
+          </li>
+          <li className="kvItem">
+            <span className="kvKey">Avg flowrate</span>
+            <span className="kvVal">{summary.avg_flowrate.toFixed(2)}</span>
+          </li>
+          <li className="kvItem">
+            <span className="kvKey">Avg pressure</span>
+            <span className="kvVal">{summary.avg_pressure.toFixed(2)}</span>
+          </li>
+          <li className="kvItem">
+            <span className="kvKey">Avg temperature</span>
+            <span className="kvVal">{summary.avg_temperature.toFixed(2)}</span>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }

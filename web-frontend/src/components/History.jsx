@@ -11,15 +11,20 @@ export default function History() {
   if (history.length === 0) return null;
 
   return (
-    <div style={{ marginTop: "20px" }}>
-      <h3>Upload History (Last 5)</h3>
-      <ul>
-        {history.map((item) => (
-          <li key={item.id}>
-            {item.file_name} — {new Date(item.uploaded_at).toLocaleString()}
-          </li>
-        ))}
-      </ul>
+    <div className="card">
+      <div className="cardBody">
+        <div className="cardTitleRow">
+          <h3 className="cardTitle">Upload History</h3>
+        </div>
+        <ul className="list">
+          {history.map((item) => (
+            <li key={item.id}>
+              <span style={{ fontWeight: 700, color: "var(--text)" }}>{item.file_name}</span>
+              <span className="muted"> — {new Date(item.uploaded_at).toLocaleString()}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

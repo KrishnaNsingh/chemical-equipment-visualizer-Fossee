@@ -16,8 +16,18 @@ export default function PdfDownload() {
   };
 
   return (
-    <div style={{ marginBottom: "20px" }}>
-      <button onClick={downloadPdf}>📄 Download PDF Report</button>
+    <div className="card">
+      <div className="cardBody">
+        <div className="cardTitleRow">
+          <h3 className="cardTitle">Report</h3>
+        </div>
+        <div style={{ marginTop: 4 }}>
+          <button className="btn btnIcon" onClick={downloadPdf}>
+            <span aria-hidden="true">📄</span>
+            <span>Download PDF Report</span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

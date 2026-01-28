@@ -31,7 +31,19 @@ export default function Charts() {
   }, []);
 
   if (!summary) {
-    return <p>Loading charts...</p>;
+    return (
+      <div className="card">
+        <div className="cardBody">
+          <div className="cardTitleRow">
+            <h3 className="cardTitle">Visual Analytics</h3>
+          </div>
+          <div className="loadingRow">
+            <span className="spinner" aria-hidden="true" />
+            <span>Loading charts…</span>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   // Pie chart: Equipment type distribution
@@ -75,17 +87,27 @@ export default function Charts() {
   };
 
   return (
-    <div>
-      <h3>Visual Analytics</h3>
+    <div className="card">
+      <div className="cardBody">
+        <div className="cardTitleRow">
+          <h3 className="cardTitle">Visual Analytics</h3>
+        </div>
 
-      <div style={{ width: "400px", marginBottom: "30px" }}>
-        <h4>Equipment Type Distribution</h4>
-        <Pie data={pieData} />
-      </div>
+        <div className="chartsGrid">
+          <section className="chartPanel">
+            <h4 className="chartTitle">Equipment Type Distribution</h4>
+            <div style={{ width: "100%", maxWidth: 540, margin: "0 auto" }}>
+              <Pie data={pieData} />
+            </div>
+          </section>
 
-      <div style={{ width: "500px" }}>
-        <h4>Average Parameters</h4>
-        <Bar data={barData} />
+          <section className="chartPanel">
+            <h4 className="chartTitle">Average Parameters</h4>
+            <div style={{ width: "100%", maxWidth: 740, margin: "0 auto" }}>
+              <Bar data={barData} />
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   );
