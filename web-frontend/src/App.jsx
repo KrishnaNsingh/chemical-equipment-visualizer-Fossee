@@ -17,7 +17,9 @@ function App() {
       <Summary key={refreshKey} />
 
       <Charts />
+
       <History />
+
       <PdfDownload />
     </div>
   );

@@ -64,7 +64,6 @@ export default function Charts() {
         "#2196F3",
         "#FF9800",
       ],
-        borderColor: "#3e95cd",
         borderWidth: 1,
         data: [
           summary.avg_flowrate,
