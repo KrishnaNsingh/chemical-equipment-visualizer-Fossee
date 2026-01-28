@@ -1,7 +1,7 @@
 import { useState } from "react";
 import api from "../api";
 
-export default function FileUpload() {
+export default function FileUpload({ onUploadSuccess }) {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState("");
 
@@ -22,6 +22,7 @@ export default function FileUpload() {
       });
 
       setMessage("✅ File uploaded successfully");
+      onUploadSuccess();   // 👈 trigger refresh
     } catch (error) {
       setMessage("❌ Upload failed");
       console.error(error);
