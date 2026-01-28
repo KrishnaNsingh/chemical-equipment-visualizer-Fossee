@@ -170,6 +170,8 @@ All APIs are protected using **Basic Authentication**.
 
 ## Web Frontend Setup (React)
 
+![Web Dashboard](screenshots/web_dashboard.png)
+
 ```bash
 cd web-frontend
 npm install
@@ -194,6 +196,8 @@ Features:
 
 ## Desktop App Setup (PyQt5)
 
+![Desktop Application](screenshots/desktop_app.png)
+
 ```bash
 cd desktop-app
 python -m venv venv
@@ -213,6 +217,8 @@ Desktop features mirror the web app:
 ---
 
 ## PDF Report
+
+![PDF Report](screenshots/pdf_report.png)
 
 The generated PDF includes:
 
@@ -236,21 +242,6 @@ The same report is accessible from:
 * Equivalent charts across platforms
 
 Styling is intentionally kept simple to focus on clarity and functionality.
-
----
-
-## Screenshots
-
-> *Screenshots can be added here to visually demonstrate the application.*
-
-Suggested screenshots:
-
-1. Web application – CSV upload and summary view
-2. Web application – charts (pie and bar)
-3. Desktop application – summary and charts
-4. PDF report preview
-
-(Images may be placed in a `screenshots/` folder and referenced here.)
 
 ---
 
