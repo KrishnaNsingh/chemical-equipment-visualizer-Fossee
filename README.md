@@ -2,16 +2,17 @@
 
 ## Overview
 
-This project is a **hybrid Web + Desktop application** built as part of the **FOSSEE Semester Long Internship – 2026 screening task**.
+This project was developed as part of the **FOSSEE Semester Long Internship – 2026 screening task**.
 
-The application allows users to upload a CSV file containing chemical equipment parameters, performs backend analytics using Python, and visualizes the results consistently across:
+The objective of the assignment is to design and implement a **hybrid Web + Desktop application** that demonstrates:
 
-* a **Web application (React)** and
-* a **Desktop application (PyQt5)**
+* clean backend API design,
+* correct data handling and analysis, and
+* consistent visualization across multiple client platforms.
 
-A single **Django REST backend** serves both frontends.
+The application allows users to upload a CSV file containing chemical equipment parameters. The backend processes the data and exposes analytical results through REST APIs, which are consumed by both the Web and Desktop applications.
 
-The focus of this project is **clean data handling, API reuse, and UI/UX consistency**, not heavy UI styling.
+The emphasis of this project is on **correctness, clarity, and reusability of logic**, rather than advanced UI styling.
 
 ---
 
@@ -238,25 +239,42 @@ Styling is intentionally kept simple to focus on clarity and functionality.
 
 ---
 
+## Screenshots
+
+> *Screenshots can be added here to visually demonstrate the application.*
+
+Suggested screenshots:
+
+1. Web application – CSV upload and summary view
+2. Web application – charts (pie and bar)
+3. Desktop application – summary and charts
+4. PDF report preview
+
+(Images may be placed in a `screenshots/` folder and referenced here.)
+
+---
+
 ## Demo Video
 
-A 2–3 minute demo video demonstrates:
+A short demo video (2–3 minutes) is provided to demonstrate the complete workflow:
 
-1. Backend running
-2. CSV upload from Web
-3. Data visualization (charts)
-4. PDF download
-5. CSV upload from Desktop
-6. Desktop charts and PDF download
+1. Running the Django backend
+2. CSV upload from the Web application
+3. Display of summary statistics and charts
+4. PDF report download
+5. CSV upload from the Desktop application
+6. Desktop visualization and PDF download
 
 ---
 
 ## Notes for Evaluators
 
-* Backend acts as the single source of truth
-* No CSV parsing is done on frontend
-* Analytics are computed once and reused
-* Desktop and Web clients are thin, API-driven layers
+* The backend acts as a single source of truth for all computations
+* CSV parsing and analytics are performed only on the backend
+* Frontend applications consume pre-computed results via REST APIs
+* Both Web and Desktop clients share the same data flow and logic
+
+This design ensures consistency, avoids duplication of logic, and reflects real-world client–server architecture.
 
 ---
 
