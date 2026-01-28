@@ -40,10 +40,12 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'api',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -129,3 +131,13 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.IsAuthenticated",
     ],
 }
+
+# CORS settings (for local development / demo)
+CORS_ALLOW_HEADERS = [
+    "authorization",
+    "content-type",
+]
+
+
+# CORS settings (for local development / demo)
+CORS_ALLOW_ALL_ORIGINS = True
