@@ -152,14 +152,17 @@ Backend runs at:
 ```
 http://127.0.0.1:8000/
 ```
-Currently Deployed at : https://chemical-equipment-backend-xthm.onrender.com
+Currently Deployed at : 
+```
+https://chemical-equipment-backend-xthm.onrender.com
+```
 ---
 
 ### Demo Credentials (for evaluation)
-
+```bash
 Username: fossee  
 Password: fossee123
-
+```
 
 ---
 
