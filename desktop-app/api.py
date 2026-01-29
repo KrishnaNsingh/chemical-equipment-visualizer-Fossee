@@ -1,7 +1,7 @@
 import requests
 from requests.auth import HTTPBasicAuth
 
-BASE_URL = "http://127.0.0.1:8000/api/"
+BASE_URL = "https://chemical-equipment-backend-xthm.onrender.com/api/"
 AUTH = HTTPBasicAuth("fossee", "fossee123")
 
 def upload_csv(file_path):
