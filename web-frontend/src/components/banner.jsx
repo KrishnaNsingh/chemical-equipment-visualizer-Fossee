@@ -3,7 +3,7 @@ import React from 'react';
 const DeploymentBanner = () => {
   const bannerStyle = {
     backgroundColor: '#292825', // Soft warning yellow
-    color: '#856404',           // Darker gold text for readability
+    color: '#e6dfcd',           // Darker gold text for readability
     padding: '12px 20px',
     textAlign: 'center',
     fontSize: '14px',
@@ -27,7 +27,7 @@ const DeploymentBanner = () => {
     <div style={bannerStyle}>
       <span>⚙️ Backend runs on <strong>Render</strong>. Please wait for the service to wake up.</span>
       <a 
-        href="https://chemical-equipment-backend-xthm.onrender.com/admin/" 
+        href="https://chemical-equipment-backend-xthm.onrender.com/api/status/" 
         target="_blank" 
         rel="noopener noreferrer"
         style={linkStyle}
