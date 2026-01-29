@@ -158,14 +158,11 @@ https://chemical-equipment-backend-xthm.onrender.com
 ```
 ---
 
-### Evaluation Access
-[!IMPORTANT]
+## 🔑 Evaluation Credentials
+For testing and evaluation purposes, use the following demo account:
 
-Login Credentials
-Username: fossee
-
-Password: fossee123
-
+> **Username:** `fossee`  
+> **Password:** `fossee123`
 ---
 
 ## API Endpoints
