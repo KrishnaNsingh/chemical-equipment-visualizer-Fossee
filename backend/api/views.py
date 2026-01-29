@@ -112,3 +112,17 @@ class PDFReportView(APIView):
             filename="equipment_report.pdf",
             content_type="application/pdf"
         )
+
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import AllowAny
+
+class StatusView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        return Response({
+            "status": "ok",
+            "message": "Backend is running"
+        })

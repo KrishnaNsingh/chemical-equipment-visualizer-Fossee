@@ -26,14 +26,14 @@ function App() {
 
       <main className="appShell">
         <section className="stack">
-          <FileUpload onUploadSuccess={() => setRefreshKey(refreshKey + 1)} />
+          <FileUpload onUploadSuccess={() => setRefreshKey(k => k + 1)} />
           <Summary key={refreshKey} />
           <History />
           <PdfDownload />
         </section>
 
         <section className="stack">
-          <Charts />
+          <Charts  key={refreshKey}/>
         </section>
       </main>
     </div>
