@@ -4,6 +4,7 @@ import Summary from "./components/Summary";
 import Charts from "./components/Charts";
 import PdfDownload from "./components/PdfDownload";
 import History from "./components/History";
+import DeploymentBanner from "./components/banner";
 import "./App.css";
 
 function App() {
@@ -11,6 +12,9 @@ function App() {
 
   return (
     <div>
+      <>
+        <DeploymentBanner />
+      </>
       <header className="appHeader">
         <div>
           <h1 className="appTitle">Chemical Equipment Visualizer</h1>
