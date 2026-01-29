@@ -147,22 +147,24 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-Backend runs at:
+### 6. Backend runs at:
 
 ```
 http://127.0.0.1:8000/
 ```
-Currently Deployed at : 
+### 7. SampleCurrently Deployed at : 
 ```
 https://chemical-equipment-backend-xthm.onrender.com
 ```
 ---
 
-### Demo Credentials (for evaluation)
-```bash
-Username: fossee  
+### Evaluation Access
+[!IMPORTANT]
+
+Login Credentials
+Username: fossee
+
 Password: fossee123
-```
 
 ---
 
