@@ -35,6 +35,10 @@ The emphasis of this project is on **correctness, clarity, and reusability of lo
 * Same backend used by Web and Desktop clients
 
 ---
+### Note: 
+The application expects CSV files to follow the predefined schema 
+(Equipment Name, Type, Flowrate, Pressure, Temperature) as specified in the problem statement.
+---
 
 ## Tech Stack
 
